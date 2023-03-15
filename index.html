@@ -209,26 +209,46 @@
 //     }
 
 // }
-var limit=prompt("Enter the number of fibonocci numbers");
-var a=[]
-if(limit==1)
-{
-    a[0]=0
+// var limit=prompt("Enter the number of fibonocci numbers");
+// var a=[]
+// if(limit==1)
+// {
+//     a[0]=0
+// }
+// if(limit==2){
+//     a[0]=0
+//     a[1]=1
+// }
+// else if(limit>2){
+//     a[0]=0
+//     a[1]=1
+//     i=2
+// while(i<limit)
+// {
+//     a[i]= a[i-2]+a[i-1];
+//     i++;
+// }
+// }
+// alert(a)
+function anotherAddEventListener(typeOfEvent,callback){
+    console.log()
+
+    var eventThatHappened={
+        eventType:'keypress',
+        key:'p',
+        DurationOfKeypress:2
+    }
+    if(eventThatHappened.eventType===typeOfEvent)
+    callback(eventThatHappened);
 }
-if(limit==2){
-    a[0]=0
-    a[1]=1
+anotherAddEventListener("keypress",function(evt){
+    console.log(evt);
 }
-else if(limit>2){
-    a[0]=0
-    a[1]=1
-    i=2
-while(i<limit)
-{
-    a[i]= a[i-2]+a[i-1];
-    i++;
-}
-}
-alert(a)
+);
+document.addEventListener("keypress",function(evt){
+    console.log(evt);
+});
+
+
     </script>
 </html>

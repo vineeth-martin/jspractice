@@ -50,6 +50,7 @@ switch (key) {
 document.addEventListener('keypress',function($event){
     var k1=$event.key
     console.log($event.key)
+    buttonAnimation($event.key)
     switch (k1) {
         case 'w':
             var tom1=new Audio('tom-1.mp3');
@@ -91,5 +92,13 @@ document.addEventListener('keypress',function($event){
             break;
     }
 })
+function buttonAnimation(currentkey){
+var activeButton= document.querySelector("."+currentkey)
+console.log(activeButton)
+activeButton.classList.add("pressed")
+setTimeout(function(){
+    activeButton.classList.remove("pressed")
+},100);
+}
 }
 
