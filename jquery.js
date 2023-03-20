@@ -30,6 +30,6 @@ $("input").keypress(function(event){
 })
 $("h1").append("<button type='button' >Button</button>")
 $("h1").before("<button type='button' >Button</button>")
-$("button").click,function(){
+$("button").on("click",function(){
     $("h1").slideUp().slideDown().animate({opacity:0.5})
-}
+})
