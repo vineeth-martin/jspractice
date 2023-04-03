@@ -12,8 +12,8 @@ var equalflg=true
 document.addEventListener('keypress',function nextSequense(){
 
     if(!started){
-
-        $("#level-title").text("Level "+j )
+        level=0
+        $("#level-title").text("Level "+level )
     }
     started=true
         var i=(Math.floor(Math.random()*10) )%4;
@@ -22,7 +22,7 @@ document.addEventListener('keypress',function nextSequense(){
         gamePattern.push(randomChosenColour)
         $("#" + randomChosenColour).fadeOut(100).fadeIn(100);
         playSound(randomChosenColour);
-        j++;
+        level++;
     console.log(gamePattern)
     
 
@@ -51,14 +51,27 @@ function animatePress(userChosenColour){
 function checkanswer(currentLevel){
 for(var k=0;k<currentLevel;k++){
     if(userClickedPattern[k]!=gamePattern[k]){
+
         equalflg=false
         console.log("failure")
+        $("body").addClass("game-over").delay(100).removeClass("game-over");
+        $('h1').text('Game Over, Press Any Key to Restart')
+        playSound("wrong")
+        j=0
+        started=false
         return
     }
 }
 if(equalflg==true)
     {
         console.log("success")
+
         return
+
     }
+}
+function startover(){
+    level=0
+    started=false
+    gamePattern=[]
 }
